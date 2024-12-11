@@ -1,38 +1,36 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "../Home/Home.jsx"
-import DonateForm from "../DonateForm/DonateForm.jsx"
-import DonateList from "../DonateList/DonateList.jsx"
-import LogoLivro from "../../assets/logo-header.png"
+import logo from '../../../assets/logo.png'
+import search from '../../../assets/search.png'
+import { BrowserRouter, Routes, Route,Link } from 'react-router-dom'
+import Home from '../../Pages/Home/Home'
+import DonateList from '../../Pages/DonateList/DonateList'
+import DonateForm from '../../Pages/DonateForm/DonateForm'
+import S from "./header.module.scss"
 
-function Header()
-{
-    return (
+export default function header(){
+    return(
         <BrowserRouter>
-            <div>
-                <figure>
-                    <img src={LogoLivro} alt="Imagem de ilustração de um livro aberto" />
-                </figure>
-            </div>
-            <nav>
+        <header>
+            <section className={S.boxLogo}>
+                <img src={logo} alt="imagem de um livro" />
+                <h1>Livros Vai na Web</h1>
+            </section>
+            <nav className={S.boxMenu}>
                 <ul>
-                    <Link to="/">
-                        <li>Inicio</li>
-                    </Link>
-                    <Link to="/livros-doados">
-                        <li>Livros Doados</li>
-                    </Link>
-                    <Link to="/quero-doar">
-                        <li>Quero Doar</li>
-                    </Link>
+                    <li><Link to="/">Inicio</Link></li>
+                    <li><Link to="/donate-list">Livros Doados</Link></li>
+                    <li><Link to="/donate-form">Quero Doar</Link></li>
                 </ul>
             </nav>
-            <Routes>
-                <Route path="/" element={<Home/>} />
-                <Route path="/livros-doados" element={<DonateList/>} />
-                <Route path="/quero-doar" element={<DonateForm/>} />
-            </Routes>
+            <div className={S.boxInput}>
+                <input type="text" placeholder='O que você procura?' />
+                <img src={search} alt="Ícone de lupa" />
+            </div>
+        </header>
+        <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/donate-form' element={<DonateForm/>}/>
+            <Route path='/donate-list' element={<DonateList/>}/>
+        </Routes>
         </BrowserRouter>
     )
 }
-
-export default Header
