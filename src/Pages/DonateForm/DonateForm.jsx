@@ -13,42 +13,42 @@ export default function DonateForm(){
 
     const enviarDados = async() => {
 
-            const urlApi = "https://apidoacaolivrosvainaweb.onrender.com/doar" 
-    
-            const dadosEnviar = {
-                titulo,
-                categoria,
-                autor,
-                imagem_url
-            }
-    
-            await axios.post(urlApi, dadosEnviar) 
-    
-            alert("Livro cadastrado com sucesso!")
-    
-            setTitulo("")
-            setCategoria("")
-            setAutor("")
-            setImagem_url("")
+        const urlApi = "https://apidoacaolivrosvainaweb.onrender.com/doar" 
 
-            console.log("Livro Cadastrado com sucesso!")
+        const dadosEnviar = {
+            titulo,
+            categoria,
+            autor,
+            imagem_url
         }
+
+        await axios.post(urlApi, dadosEnviar) 
+
+        alert("Livro cadastrado com sucesso!")
+
+        setTitulo("")
+        setCategoria("")
+        setAutor("")
+        setImagem_url("")
+
+        console.log("Livro Cadastrado com sucesso!")
+    }
     
-        const capturaTitulo = (e) =>{
-            setTitulo(e.target.value)
-        }
-    
-        const capturaCategoria = (e) =>{
-            setCategoria(e.target.value)
-        }
-    
-        const capturaAutor = (e) =>{
-            setAutor(e.target.value)
-        }
-    
-        const capturaImagem = (e) =>{
-            setImagem_url(e.target.value)
-        }
+    const capturaTitulo = (e) =>{
+        setTitulo(e.target.value)
+    }
+
+    const capturaCategoria = (e) =>{
+        setCategoria(e.target.value)
+    }
+
+    const capturaAutor = (e) =>{
+        setAutor(e.target.value)
+    }
+
+    const capturaImagem = (e) =>{
+        setImagem_url(e.target.value)
+    }
     
 
     return(
