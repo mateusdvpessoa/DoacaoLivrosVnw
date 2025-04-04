@@ -31,6 +31,8 @@ export default function DonateForm(){
         setAutor("")
         setImagem_url("")
 
+        location.reload()
+
         console.log("Livro Cadastrado com sucesso!")
     }
     
@@ -55,7 +57,7 @@ export default function DonateForm(){
         <section className={S.principal}>
             <section className={S.container}>
                 <h2>Por favor, preencha o formulário com suas informações e as informações do Livro</h2>
-                <form action="">
+                <form onSubmit={(e)=> e.preventDefault()}>
                     <div>
                         <img src={livro} alt="" />
                         <h3>Informações do Livro</h3>
